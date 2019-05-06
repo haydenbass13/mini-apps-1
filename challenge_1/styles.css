@@ -2,18 +2,19 @@ body {
   margin: 0;
   margin-top: 10px;
   font-family: arial, sans-serif;
-  background-color: rgb(67, 67, 67);
+  background-color: rgb(255, 255, 255);
 }
-  h1 {
+
+h1 {
+    margin:0px;
     text-align: center;
-    text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
-    color: #333;
-    opacity: 0.4;
+    text-shadow: -1px -1px 0px rgb(255, 175, 175), 1px 1px 0px rgb(69, 0, 0);
+    color: rgb(187, 0, 0);
+    opacity: 0.8;
     font: 700 80px 'Bitter';
 }
 #gameBoardWrapper{
   padding: 0;
-  margin: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -27,15 +28,28 @@ body {
   height:200px;
   width:200px;
   margin: 5px;
-  border-radius: 10px;
-  border-style:solid;
-  border-color: rgb(141, 143, 103);
+  border-radius: 10px;  
+  background-color: rgb(75, 75, 75);
+  border-width: 8px;
   text-align: center;
-	text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
-	color: #333;
-	opacity: 0.4;
-	font: 700 185px 'Bitter';
+	text-shadow: -1px -1px 0px rgba(255, 249, 192, 0.76), 1px 1px 0px rgba(52, 42, 0, 0.897);
+  color: rgba(255, 251, 0, 0.342);
+  box-shadow: 4px 4px 8px 0px black;
+	font: 900 185px 'Bitter';
 }
 #newGame {
   margin:15px;
+}
+#newGame{
+  margin: 40px;
+  border-radius:15px;
+  border-color:#333;
+  height:50px;
+  width:170px;
+  box-shadow: 4px 4px 8px 0px black;
+	text-align: center;
+	text-shadow: -1px -1px 0px rgba(255, 249, 192, 0.76), 1px 1px 0px rgba(52, 42, 0, 0.897);
+  color: rgba(255, 251, 0, 0.342);
+  font: 700 30px 'Bitter';
+  background-color: rgb(75, 75, 75);
 }
