@@ -28,8 +28,8 @@ window.playerTracker = false; //toggle this with every move
 const rowCheck = function() {
   for (var i = 0; i <= 6; i+=3) {
     let row = [matrix[i], matrix[i+1], matrix[i+2]];
-    if (row.every((el) => el === 2)) alert('player wins');
-    if (row.every((el) => el === 1)) alert('player wins');
+    if (row.every((el) => el === 2)) alert('player2 wins');
+    if (row.every((el) => el === 1)) alert('player1 wins');
     }
   };
 
@@ -37,13 +37,18 @@ const rowCheck = function() {
 const colCheck = function() {
   for (var i = 0; i < 3; i++) {
     let row = [window.matrix[i], window.matrix[i+3], window.matrix[i+6]];
-    if (row.every((el) => el === 2)) alert('player wins');
-    if (row.every((el) => el === 1)) alert('player wins');
+    if (row.every((el) => el === 2)) alert('player2 wins');
+    if (row.every((el) => el === 1)) alert('player1 wins');
   }
 };
 
 const diaCheck = function() {
-
+ let major = [window.matrix[0], window.matrix[4], window.matrix[8]];
+ let minor = [window.matrix[2], window.matrix[4], window.matrix[6]];
+ if(major.every(el => el === 2)) alert('player2 wins')
+ if(major.every(el => el === 1)) alert('player1 wins')
+ if(minor.every(el => el === 2)) alert('player2 wins')
+ if(minor.every(el => el === 1)) alert('player1 wins')
 }
 
 
@@ -81,6 +86,7 @@ document.addEventListener('click', function(){
       // colCheck();
       rowCheck();
       colCheck();
+      diaCheck();
       playerTracker = !playerTracker;
       // console.log(event.target.id, matrix);
     }
