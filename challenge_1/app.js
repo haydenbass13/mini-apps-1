@@ -17,15 +17,30 @@
     //how will this happen? maybe have an alternating t/f variable to add them?
     //can be css styling to display x or o?
   
+//------------------- gameboard/playcount -------------------
+window.matrix = [
+                //c0 c1 c2
+                  [0,0,0], //r0
+                  [0,0,0], //r1
+                  [0,0,0]  //r2
+                          ];
+window.moveCount = 0;
+//------------------- win checker functions -------------------
+const rowCheck = function(startIndex) {
 
+}
+
+//-------------------event handlers -------------------
 document.getElementById('newGame').onclick = function() {
   alert('button working');
+  moveCount = 0;
 }
 
 
 document.addEventListener('click', function(){
   if(event.target.classList.contains('square')){
     alert(event.target.innerText);
+    moveCount++;
   };
 })
 
