@@ -18,29 +18,51 @@
     //can be css styling to display x or o?
   
 //------------------- gameboard/playcount -------------------
-window.matrix = [
-                //c0 c1 c2
-                  [0,0,0], //r0
-                  [0,0,0], //r1
-                  [0,0,0]  //r2
-                          ];
+window.matrix = [0,0,0,0,0,0,0,0,0];
 window.moveCount = 0;
-//------------------- win checker functions -------------------
-const rowCheck = function(startIndex) {
+window.playerTracker = false; //toggle this with every move
 
+
+
+//------------------- win checker functions -------------------
+const rowCheck = function(row, col) {
+  //check above and below starting index
+  //starting index will be given from eventhandler
+    //will tell which row was clicked and which column
+    //matrix[0][0] for top left
+    //matrix[1][1] will be center etc.
 }
+
+
+
+//------------------- game reset funcs -------------------
+const reset = function() {
+  for (var i = 0; i < window.matrix.length; i++) {
+    window.matrix[i] = 0;
+  }
+}
+
 
 //-------------------event handlers -------------------
 document.getElementById('newGame').onclick = function() {
-  alert('button working');
   moveCount = 0;
+  playerTracker = false;
+  reset();
+  console.log(playerTracker, moveCount);
 }
 
 
 document.addEventListener('click', function(){
   if(event.target.classList.contains('square')){
-    alert(event.target.innerText);
     moveCount++;
+    if(playerTracker) {
+      window.matrix[event.target.id] = 1;
+    }
+    else {
+      window.matrix[event.target.id] = 2;
+    }
+    playerTracker = !playerTracker;
+    console.log(event.target.id, matrix);
   };
 })
 
