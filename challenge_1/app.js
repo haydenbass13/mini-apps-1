@@ -1,15 +1,15 @@
 //x goes first
 //have a new game button
-//detect wins or ties
+//detect WINS! or ties
   //after each play, update a pay count 
     //there can only be a total of 9 plays per round
-      //if no wins at 9 plays - display tie
-    //after each play, check for wins
+      //if no WINS! at 9 plays - display tie
+    //after each play, check for WINS!
       //similar to n-queens
-        //check for horizontal wins
-        //check for vertical wins
-        //check for diagonal wins
-          //if win, display 'player x wins'
+        //check for horizontal WINS!
+        //check for vertical WINS!
+        //check for diagonal WINS!
+          //if win, display 'player x WINS!'
   //start with a blank board
     //add a timer at the top?
   //when player one clicks, it will update the square with x
@@ -28,8 +28,8 @@ window.playerTracker = false; //toggle this with every move
 const rowCheck = function() {
   for (var i = 0; i <= 6; i+=3) {
     let row = [matrix[i], matrix[i+1], matrix[i+2]];
-    if (row.every((el) => el === 2)) alert('player2 wins');
-    if (row.every((el) => el === 1)) alert('player1 wins');
+    if (row.every((el) => el === 2)) alert('X WINS!');
+    if (row.every((el) => el === 1)) alert('O WINS!');
     }
   };
 
@@ -37,18 +37,24 @@ const rowCheck = function() {
 const colCheck = function() {
   for (var i = 0; i < 3; i++) {
     let row = [window.matrix[i], window.matrix[i+3], window.matrix[i+6]];
-    if (row.every((el) => el === 2)) alert('player2 wins');
-    if (row.every((el) => el === 1)) alert('player1 wins');
+    if (row.every((el) => el === 2)) alert('X WINS!');
+    if (row.every((el) => el === 1)) alert('O WINS!');
   }
 };
 
 const diaCheck = function() {
  let major = [window.matrix[0], window.matrix[4], window.matrix[8]];
  let minor = [window.matrix[2], window.matrix[4], window.matrix[6]];
- if(major.every(el => el === 2)) alert('player2 wins')
- if(major.every(el => el === 1)) alert('player1 wins')
- if(minor.every(el => el === 2)) alert('player2 wins')
- if(minor.every(el => el === 1)) alert('player1 wins')
+ if(major.every(el => el === 2)) alert('X WINS!')
+ if(major.every(el => el === 1)) alert('O WINS!')
+ if(minor.every(el => el === 2)) alert('X WINS!')
+ if(minor.every(el => el === 1)) alert('O WINS!')
+}
+
+const checkWinner = function() {
+  colCheck();
+  diaCheck();
+  rowCheck();
 }
 
 
@@ -57,6 +63,7 @@ const diaCheck = function() {
 const reset = function() {
   for (var i = 0; i < window.matrix.length; i++) {
     window.matrix[i] = 0;
+    document.getElementsByClassName('square')[i].innerText = '';
   }
 }
 
@@ -77,22 +84,19 @@ document.addEventListener('click', function(){
     if(!window.matrix[squareId]) {
       if(playerTracker) {
         window.matrix[squareId] = 1;
-        event.target.innerText = 'x'
+        event.target.innerText = 'O'
       }
       else {
         window.matrix[squareId] = 2;
-        event.target.innerText = 'o'
+        event.target.innerText = 'X'
       }
-      // colCheck();
-      rowCheck();
-      colCheck();
-      diaCheck();
       playerTracker = !playerTracker;
-      // console.log(event.target.id, matrix);
     }
     else {
       alert('this square has already been picked')
     }
+    checkWinner();
+    if(moveCount === 9) alert('draw!')
   };
 })
 
