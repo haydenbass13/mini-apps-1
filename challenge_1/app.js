@@ -18,5 +18,14 @@
     //can be css styling to display x or o?
   
 
-    
+document.getElementById('newGame').onclick = function() {
+  alert('button working');
+}
+
+
+document.addEventListener('click', function(){
+  if(event.target.classList.contains('square')){
+    alert(event.target.innerText);
+  };
+})
 
