@@ -18,19 +18,30 @@
     //can be css styling to display x or o?
   
 //------------------- gameboard/playcount -------------------
-window.matrix = [0,0,0,0,0,0,0,0,0];
+window.matrix = [1,0,0,1,0,0,1,0,0];
 window.moveCount = 0;
 window.playerTracker = false; //toggle this with every move
 
 
 
 //------------------- win checker functions -------------------
-const rowCheck = function(row, col) {
-  //check above and below starting index
-  //starting index will be given from eventhandler
-    //will tell which row was clicked and which column
-    //matrix[0][0] for top left
-    //matrix[1][1] will be center etc.
+const rowCheck = function() {
+let plays = {
+  1: 0,
+  2: 0
+  };
+  for (var i = 0; i <= 6; i+=3) {
+    let row = [matrix[i], matrix[i+1], matrix[i+2]];
+    if (row.every((el) => el === 2)) alert('player wins');
+    if (row.every((el) => el === 1)) alert('player wins');
+    }
+  }
+
+
+const colCheck = function() {
+  for (var i = 0; i < 3; i++) {
+    console.log([window.matrix[i], window.matrix[i+3], window.matrix[i+6]])
+  }
 }
 
 
@@ -55,14 +66,23 @@ document.getElementById('newGame').onclick = function() {
 document.addEventListener('click', function(){
   if(event.target.classList.contains('square')){
     moveCount++;
-    if(playerTracker) {
-      window.matrix[event.target.id] = 1;
+    let squareId = event.target.id;
+    if(!window.matrix[squareId]) {
+      if(playerTracker) {
+        window.matrix[squareId] = 1;
+      }
+      else {
+        window.matrix[squareId] = 2;
+      }
+      // colCheck();
+      rowCheck();
+      playerTracker = !playerTracker;
+      // console.log(event.target.id, matrix);
     }
     else {
-      window.matrix[event.target.id] = 2;
+      alert('this square has already been picked')
     }
-    playerTracker = !playerTracker;
-    console.log(event.target.id, matrix);
   };
 })
+
 
