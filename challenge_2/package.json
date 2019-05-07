@@ -1,0 +1,24 @@
+{
+  "name": "challenge_2",
+  "version": "1.0.0",
+  "description": "Express App",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haydenbass13/hrr38-mini-apps-1.git"
+  },
+  "author": "Hayden Bass",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haydenbass13/hrr38-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/haydenbass13/hrr38-mini-apps-1#readme"
+}
