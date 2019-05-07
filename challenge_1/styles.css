@@ -32,8 +32,6 @@ h1 {
   background-color: rgb(75, 75, 75);
   border-width: 8px;
   text-align: center;
-	text-shadow: -1px -1px 0px rgba(255, 249, 192, 0.76), 1px 1px 0px rgba(52, 42, 0, 0.897);
-  color: rgba(255, 251, 0, 0.342);
   box-shadow: 4px 4px 8px 0px black;
 	font: 900 185px 'Bitter';
 }
@@ -52,4 +50,26 @@ h1 {
   color: rgba(255, 251, 0, 0.342);
   font: 700 30px 'Bitter';
   background-color: rgb(75, 75, 75);
+}
+.X {
+  text-shadow: -1px -1px 0px rgb(255, 175, 175), 1px 1px 0px rgb(69, 0, 0);
+    color: rgb(187, 0, 0);
+}
+
+.O {
+  text-shadow: -1px -1px 0px rgba(151, 180, 255, 0.858), 1px 1px 0px rgba(0, 4, 52, 0.897);
+  color: rgba(33, 37, 150, 0.975);
+}
+#winner {
+  border-radius: 15px;
+  position: absolute;
+  top:43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  z-index: 3;
+  height:150px;
+  width: 450px;
+  background-color:white;
+  background-image: url('https://i.gifer.com/5Q17.gif');
 }
