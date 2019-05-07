@@ -35,12 +35,12 @@ const diaCheck = function() {
  if(minor.every(el => el === 'O')) window.winner = 'O';
 }
 
-const checkWinner = function(callback) {
+const checkWinner = function() {
   colCheck();
   diaCheck();
   rowCheck();
   if(window.winner !== null) {
-    callback(window.winner);
+    renderWinner(window.winner)
   }
 }
 
@@ -48,6 +48,8 @@ const checkWinner = function(callback) {
 
 //------------------- game reset funcs -------------------
 const reset = function() {
+  document.getElementById('winner').style.visibility = 'hidden';
+  window.winner = null;
   for (var i = 0; i < window.matrix.length; i++) {
     window.matrix[i] = '';
     render(i);
@@ -60,6 +62,12 @@ const render = function(index) {
     if (matrix[index]) {
       element.classList.add(`${window.matrix[index]}`)
     }
+   else {
+     element.classList = 'square';
+   }
+}
+const renderWinner = function(win) {
+  document.getElementById('winner').style.visibility = 'visible';
 }
 
 
@@ -79,16 +87,12 @@ document.addEventListener('click', function(){
       if(playerTracker) {
         window.matrix[squareId] = 'O';
         render(squareId);
-        checkWinner((win) => {
-          alert(win);
-        });
+        checkWinner()
       }
       else {
         window.matrix[squareId] = 'X';
         render(squareId);
-        checkWinner((win) => {
-          alert(win);
-        });
+        checkWinner();
       }
       playerTracker = !playerTracker;
     }
