@@ -1,9 +1,16 @@
 body {
   padding:0px;
   margin: 0;
-  margin-top: 10px;
   font-family: arial, sans-serif;
   background-color: rgb(255, 255, 255);
+}
+#bigWrapper{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-color: black;
+  opacity:0.8;
+  visibility:hidden;
 }
 
 h1 {
@@ -30,7 +37,7 @@ h1 {
   width:200px;
   margin: 5px;
   border-radius: 10px;  
-  background-color: rgb(75, 75, 75);
+  background-color: rgb(172, 172, 172);
   border-width: 8px;
   text-align: center;
   box-shadow: 4px 4px 8px 0px black;
@@ -51,6 +58,7 @@ h1 {
   color: rgba(255, 251, 0, 0.342);
   font: 700 30px 'Bitter';
   background-color: rgb(75, 75, 75);
+  z-index: 3;
 }
 .X {
   text-shadow: -1px -1px 0px rgb(255, 175, 175), 1px 1px 0px rgb(69, 0, 0);
@@ -58,20 +66,20 @@ h1 {
 }
 
 .O {
-  text-shadow: -1px -1px 0px rgba(151, 180, 255, 0.858), 1px 1px 0px rgba(0, 4, 52, 0.897);
-  color: rgba(33, 37, 150, 0.975);
+  text-shadow: -1px -1px 0px rgba(255, 186, 134, 0.858), 1px 1px 0px rgba(52, 31, 0, 0.897);
+  color: rgba(227, 117, 0, 0.975);
 }
 #winner {
   border-radius: 15px;
   position: absolute;
-  top:43%;
+  top:45%;
   left: 50%;
   transform: translate(-50%, -50%);
   visibility: hidden;
   z-index: 3;
-  height: 600px;
+  height: 150px;
   width: 600px;
-  background-image: url('https://media.giphy.com/media/fxwpwPOhNknT2/giphy.gif');
-  background-size: cover;
-  opacity: 0.7;
+  opacity: 0.9;
+  text-align: center;
+  font: 700 100px 'Bitter';
 }

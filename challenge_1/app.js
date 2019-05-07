@@ -49,6 +49,8 @@ const checkWinner = function() {
 //------------------- game reset funcs -------------------
 const reset = function() {
   document.getElementById('winner').style.visibility = 'hidden';
+  document.getElementById('bigWrapper').style.visibility = 'hidden';
+  document.getElementById('winner').classList = ''
   window.winner = null;
   for (var i = 0; i < window.matrix.length; i++) {
     window.matrix[i] = '';
@@ -68,6 +70,10 @@ const render = function(index) {
 }
 const renderWinner = function(win) {
   document.getElementById('winner').style.visibility = 'visible';
+  document.getElementById('bigWrapper').style.visibility = 'visible';
+  document.getElementById('winner').innerText = `${win} WINS!`;
+  document.getElementById('winner').classList.add(win);
+  
 }
 
 
@@ -81,16 +87,17 @@ document.getElementById('newGame').onclick = function() {
 
 document.addEventListener('click', function(){
   if(event.target.classList.contains('square')){
-    moveCount++;
     let squareId = event.target.id;
     if(!window.matrix[squareId]) {
       if(playerTracker) {
         window.matrix[squareId] = 'O';
+        moveCount++;
         render(squareId);
         checkWinner()
       }
       else {
         window.matrix[squareId] = 'X';
+        moveCount++;
         render(squareId);
         checkWinner();
       }
