@@ -4,7 +4,9 @@
   "description": "Express App",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "jquery": "^3.4.1",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {},
   "scripts": {

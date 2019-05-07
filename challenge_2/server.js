@@ -5,7 +5,7 @@
 //all report generation logic is comes from here
 //dont use npm 
 //JQUERY NOT ALLOWED ON SERVER
-
+// var _ = require('underscore');
 var express = require('express');
 var router = express.Router();
 var parser = require('body-parser');
@@ -19,4 +19,14 @@ app.listen(port, () => {
 });
 
 
-// app.post('/upload_json', (req, res) => { ... })
+app.post('/upload_json', (req, res) => {
+  res.status(201);
+  res.setHeader('Content-Type', 'text/csv');
+  res.write('testing')
+  res.end();
+})
+
+//------------templates------------
+// var renderedCSV = _.template();
+
+
