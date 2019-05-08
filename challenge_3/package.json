@@ -1,0 +1,29 @@
+{
+  "name": "challenge_3",
+  "version": "1.0.0",
+  "description": "Multistep Checkout Experience",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "./node_modules/.bin/babel client --out-dir public --presets @babel/preset-react --source-maps inline --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haydenbass13/hrr38-mini-apps-1.git"
+  },
+  "author": "Hayden Bass",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haydenbass13/hrr38-mini-apps-1/issues"
+  },
+  "homepage": "https://github.com/haydenbass13/hrr38-mini-apps-1#readme",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-react": "^7.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-watch": "^7.0.0"
+  }
+}
