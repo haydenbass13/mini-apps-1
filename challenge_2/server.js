@@ -3,30 +3,52 @@
 // You may also assume that child records in the JSON will always be in a property called children.`
 
 //all report generation logic is comes from here
-//dont use npm 
+//dont use via npm 
 //JQUERY NOT ALLOWED ON SERVER
-// var _ = require('underscore');
+
 var express = require('express');
 var router = express.Router();
-var parser = require('body-parser');
 var app = express();
+var path = require('path');
+var { parse } = require('querystring');
 
 app.use(express.static('client'));
 const port = 4568;
 
 app.listen(port, () => {
-  console.log(`Shortly is listening on ${port}`);
+  console.log(`Server is listening on ${port}`);
 });
 
-
 app.post('/upload_json', (req, res) => {
-  res.status(201);
-  res.setHeader('Content-Type', 'text/csv');
-  res.write('testing')
-  res.end();
+  res.status(201)
+  let body = '';
+  req.on('data', chunk => {
+        body += chunk.toString();
+        body = JSON.parse(body);  
+    })
+  req.on('end', () => {
+    let response = renderedCSV(body)
+    console.log(response)
+    res.send(response)
+  })
 })
 
 //------------templates------------
-// var renderedCSV = _.template();
+var renderedCSV = function(object) {
+  let csv = Object.keys(object)
+  csv = csv.slice(0, csv.length-1).join(',') + ',';
 
-
+  function parser(object) {
+    for (var i in object) {
+      if(i !== 'children')
+      csv += `${object[i]},`
+    }
+    if(object.children && object.children !== 0) {
+      for (var child = 0; child < object.children.length; child++) {
+       parser(object.children[child])
+      }
+    }
+  }
+  parser(object);
+  return csv;
+}
