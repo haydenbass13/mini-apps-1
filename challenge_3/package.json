@@ -23,6 +23,7 @@
     "@babel/preset-react": "^7.0.0",
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
+    "mysql": "^2.17.1",
     "nodemon": "^1.19.0"
   },
   "devDependencies": {
