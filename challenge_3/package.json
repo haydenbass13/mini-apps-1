@@ -4,8 +4,8 @@
   "description": "Multistep Checkout Experience",
   "main": "server.js",
   "scripts": {
-    "test": "test",
-    "start": "./node_modules/.bin/babel client --out-dir public --presets @babel/preset-react --source-maps inline --watch"
+    "test": "./node_modules/.bin/babel client --out-dir public --presets @babel/preset-react --source-maps inline -watch",
+    "start": "nodemon --exec babel-node server/server.js --watch"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
     "@babel/core": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

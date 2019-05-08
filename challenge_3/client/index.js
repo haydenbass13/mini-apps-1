@@ -1,3 +1,3 @@
-import App from '/app.js';
+// import App from '/app.js';
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+// ReactDOM.render(<App/>, document.getElementById('app'));
