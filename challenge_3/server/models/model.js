@@ -20,6 +20,14 @@ class Model {
     let queryString = `INSERT INTO ${this.tablename} SET ?`;
     return db.query(queryString, options);
   }
+  update(email, update) {
+    let queryString = `UPDATE ${this.tablename} 
+    SET ${update} 
+    WHERE email = '${email}'`;
+    console.log(queryString);
+    return db.query(queryString);
+  }
+
 
 }
 

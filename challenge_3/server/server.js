@@ -31,7 +31,8 @@ app.get('/confirm', (req, res) => {
   // })
   
   app.post('/shipping', (req, res)=> {
-    console.log('ship post')
+    console.log(req.body)
+    user.addShipping(req.body);
     res.sendStatus(201)
     res.end()
   })

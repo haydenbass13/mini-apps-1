@@ -7,18 +7,18 @@ class ShippingInfo extends Model {
   }
 
 
-  create({firstName, lastName, email, password}) {
-    let salt = utils.createRandom32String();
+  create({address, apt, city, state, zip, phone}) {
 
-    let newUser = {
-      firstName,
-      lastName,
-      email,
-      pass: utils.createHash(password, salt),
-      salt,
+    let newShip = {
+      address,
+      apt, 
+      city,
+      state,
+      zip,
+      phone
     };
 
-    return super.create.call(this, newUser);
+    return super.create.call(this, newShip);
   }
 
 }

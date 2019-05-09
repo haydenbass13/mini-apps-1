@@ -5,6 +5,7 @@ class App extends React.Component {
     this.handleAjax = this.handleAjax.bind(this);
     this.state = {
       component: HomePage,
+      email: ''
     }
   }
   componentDidMount() {
@@ -23,8 +24,10 @@ class App extends React.Component {
   handleClick(stateObj) {
     event.preventDefault();
     let state = { component: stateObj.next }
+    if(stateObj.email) window.email = stateObj.email;
     this.setState(state)
     if(stateObj.url) {
+      if(!stateObj.email) stateObj.email = window.email;
       this.handleAjax(stateObj);
     }
   }
