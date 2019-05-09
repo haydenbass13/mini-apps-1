@@ -16,7 +16,7 @@ class Model {
     return executeQuery(queryString, parsedOptions.values).then(results => results[0]);
   }
 
-  reate(options) {
+  create(options) {
     let queryString = `INSERT INTO ${this.tablename} SET ?`;
     return executeQuery(queryString, options);
   }

@@ -3,14 +3,16 @@ class App extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      component: HomePage,
+      component: F1,
     }
   }
   componentDidMount() {
-    console.log(this.state.component)
+    console.log('mounted')
   }
-  handleClick(target) {
-    let state = {component : target}
+  handleClick(stateObj) {
+    event.preventDefault();
+    console.log(stateObj)
+    let state = {component : stateObj.next }
     this.setState(state)
   }
 
@@ -29,18 +31,39 @@ var HomePage = (props) => (
   <button onClick={()=>props.click(F1)}>Checkout</button>
 );
 
-var F1 = (props) => (
+class F1 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      next: F2,
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      url: '/user'
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    const target = event.target;
+    const name = target.name;
+    this.setState({[name]: target.value});
+    // console.log(event)
+  }
 
-  <div className="form" id="f1">
-    <form onSubmit={()=>props.click(F2)}>
-      <input type="text" placeholder="FirstName" />
-      <input type="text" placeholder="LastName" />
-      <input type="text" placeholder="Email Address" />
-      <input type="password" placeholder="Password" />
-      <button type="submit" id="f1Button" next="F2">Next</button>
+  render() {
+    return (<div className="form" id="f1">
+    <form onSubmit={()=>this.props.click(this.state)}>
+      <input type="text" placeholder="FirstName" name="firstName" defaultValue={this.state.firstName} onChange={this.handleChange} />
+      <input type="text" placeholder="LastName" name="lastName" defaultValue={this.state.lastName} onChange={this.handleChange} />
+      <input type="text" placeholder="Email Address" name="email" defaultValue={this.state.email} onChange={this.handleChange} />
+      <input type="password" placeholder="Password" name="password"  defaultValue={this.state.password} onChange={this.handlechange}/>
+      <button type="submit" id="f1Button">Next</button>
     </form>
   </div>
-);
+  )
+  }
+};
 
 var F2 = (props) => (
 

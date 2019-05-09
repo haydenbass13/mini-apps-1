@@ -33,3 +33,5 @@ app.get('/confirm', (req, res) => {
     res.sendStatus(205)
     res.end()
   })
+
+  module.exports = app;
