@@ -23,15 +23,8 @@ app.get('/confirm', (req, res) => {
   res.sendStatus(200)
   res.end()
 });
-
-
-// app.get('/user', (req, res) => {
-  //   res.write('you got a user!')
-  //   res.send(201)
-  // })
   
   app.post('/shipping', (req, res)=> {
-    console.log(req.body)
     user.addShipping(req.body);
     res.sendStatus(201)
     res.end()
@@ -44,7 +37,7 @@ app.get('/confirm', (req, res) => {
   })
 
   app.post('/billing', (req, res) => {
-    console.log('billing post')
+    user.addBilling(req.body);
     res.sendStatus(201);
     res.end();
   })

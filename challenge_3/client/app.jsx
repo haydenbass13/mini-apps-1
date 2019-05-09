@@ -133,18 +133,19 @@ class F3 extends React.Component {
       url: '/billing',
       method: "POST"
     }
-    this.handlechange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
     const target = event.target;
     const name = target.name;
     this.setState({ [name]: target.value });
+    // console.log(this.state)
   }
   render() {
     return (<div className="form" id="f3">
       <form onSubmit={() => this.props.click(this.state)} >
-        <input type="text" name="cardNumber" placeholder="Card Number" name="cardNumber" defaultValue={this.state.cardnumber} onChange={this.handleChange} />
-        <input type="date" name="exp" onChange={this.handleChange}/>
+        <input type="text" placeholder="Card Number" name="cardNumber" defaultValue={this.state.cardNumber} onChange={this.handleChange} />
+        <input type="text" name="exp" placeholder="Exp Date (0520)" onChange={this.handleChange}/>
         <input type="text" placeholder="CVV" name="cvv" defaultValue={this.state.cvv} onChange={this.handleChange} />
         <input type="text" placeholder="Billing Zip" name="billZip" defaultValue={this.state.billZip} onChange={this.handleChange} />
         <button id="f3Button" value="Submit" >Next</button>
