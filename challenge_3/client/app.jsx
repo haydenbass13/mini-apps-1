@@ -12,13 +12,34 @@ class App extends React.Component {
     console.log('mounted')
   }
   async handleAjax(stateObj) {
-    const response = await fetch(stateObj.url, {
-      method: stateObj.method,
-      body: JSON.stringify(stateObj),
-      headers: {
-        "Content-Type": "application/json; charset=UTF-8"
-      }
-    });
+    console.log(stateObj.url)
+    if (stateObj.url === '/billing') {
+      const response = await fetch(stateObj.url, {
+        method: stateObj.method,
+        body: JSON.stringify(stateObj),
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8"
+        }
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data)
+      })
+    }
+    else {
+      const response = await fetch(stateObj.url, {
+        method: stateObj.method,
+        body: JSON.stringify(stateObj),
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8"
+        }
+      })
+      .then(data => {
+        console.log('not the droids youre looking for')
+      });
+    }
   }
 
   handleClick(stateObj) {
@@ -155,11 +176,22 @@ class F3 extends React.Component {
   }
 }
 
-var Confirmation = (props) => (
-  <div className="form" id="confirmation">
-    <h1>Confirmation</h1>
-    <button onClick={() => props.click(HomePage)}>Purchase</button>
-  </div>
-)
+class Confirmation extends React.Component {
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   next: Confirmation,
+    //   url: '/confirm',
+    //   method: "GET"
+    // }
+  }
+  render() {
+    return (<div className="form" id="confirmation">
+      <h1>Confirmation</h1>
+      <button onClick={() => this.props.click(HomePage)}>Purchase</button>
+    </div>
+  )
+  }
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));

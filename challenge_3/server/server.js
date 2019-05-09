@@ -18,28 +18,36 @@ app.listen(port, () => {
   console.log(`Server is listening on ${port}`);
 });
 
-app.get('/confirm', (req, res) => {
-  console.log('confirm get')
-  res.sendStatus(200)
+// app.get('/confirm', (req, res) => {
+//   console.log('confirm get')
+//   let response = 
+//   res.send(
+// });
+app.post('/billing', (req, res) => {
+  user.addBilling(req.body);
+  // res.sendStatus(201);
+  // res.end();
+  req.on('end', () => {
+    let response = 'hate this';
+    res.body = response;
+    res.send()
+  })
   res.end()
-});
+})
   
   app.post('/shipping', (req, res)=> {
+    console.log('post ship')
     user.addShipping(req.body);
     res.sendStatus(201)
     res.end()
   })
   
   app.post('/user', (req, res) => {
+    console.log('post use')
     user.create(req.body);
     res.sendStatus(201)
     res.end()
   })
 
-  app.post('/billing', (req, res) => {
-    user.addBilling(req.body);
-    res.sendStatus(201);
-    res.end();
-  })
 
   module.exports = app;
