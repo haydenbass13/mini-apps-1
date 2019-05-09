@@ -29,9 +29,15 @@ app.get('/confirm', (req, res) => {
   })
   
   app.post('/user', (req, res) => {
-    console.log('user post')
+    console.log('user post', req.body)
     res.sendStatus(205)
     res.end()
+  })
+
+  app.post('/billing', (req, res) => {
+    console.log('billing post')
+    res.sendStatus(201);
+    res.end();
   })
 
   module.exports = app;
