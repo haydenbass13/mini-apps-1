@@ -3,12 +3,12 @@ CREATE DATABASE POS;
 USE POS;
 
 CREATE TABLE users (
-  id INT NOT NULL,
+  id INT AUTO_INCREMENT,
   firstName VARCHAR(100) NOT NULL,
   lastName VARCHAR(100) NOT NULL,
   email VARCHAR(200) UNIQUE,
-  pass VARCHAR(30),
-  salt VARCHAR(32),
+  pass VARCHAR(64),
+  salt VARCHAR(64),
   PRIMARY KEY (id)
 );
 

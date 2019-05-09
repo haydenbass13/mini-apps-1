@@ -1,7 +1,7 @@
 const utils = require('../lib/hashUtils');
 const Model = require('./model');
 
-class Users extends Model {
+class BillingInfo extends Model {
   constructor() {
     super('users');
   }
@@ -22,4 +22,4 @@ class Users extends Model {
   }
 
 }
-module.exports = new Users();
+module.exports = new BillingInfo();
