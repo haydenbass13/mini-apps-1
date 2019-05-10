@@ -1,6 +1,110 @@
+
 body {
-  background-color: green;
+  font-family: 'Giddyup Std';
 }
-h1 {
-  color:red;
+
+#logo{
+  display:flex;
+  justify-content: center;
+  height:125px;
+  /* width:400px; */
+  background: url('http://shufflecardgames.com/assets/images/licenses/connect4/header_logo.png') no-repeat center;
+
+  background-size: contain;
+}
+
+table {
+  margin: 0 auto;
+  border-spacing: 0px 0px;
+}
+.gameBoardWrapper{
+  background-color:blue;
+  width:574px;
+  height: 491px;
+  justify-self: center;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.button {
+  background-image: radial-gradient(rgb(255, 255, 118),yellow, rgb(244, 244, 0));
+  color: rgba(0, 0, 0, 0.427);
+  font-weight: 100;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow:-1px -1px 0px 2px rgb(245, 237, 0), -1px 1px 0px 1px rgb(255, 225, 0), -1px -1px 0px 8px yellow, -1px 0px 3px 8px rgb(230, 211, 0), 4px -1px 0px 9px rgb(255, 255, 158), -3px -1px 9px 8px  rgba(0, 0, 0, 0.735);
+}
+
+.button:hover {
+  background-color: rgb(255, 0, 0);
+  color: #303030;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.cell {
+  height: 80px;
+  width: 80px;
+  background-color: #0048ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px 2px #000;
+}
+
+.circle {
+  height: 15px;
+  width: 15px;
+  border: 1px solid #000;
+  border-radius: 100px;
+}
+
+.circles {
+  margin: -40px 0 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.winner {
+  text-align: center;
+  font-size: 17px;
+  height:25px;
+}
+
+.white {
+  height: 65px;
+  width: 65px;
+  background-image: radial-gradient(white,rgb(233, 233, 233), rgba(147, 147, 147, 0.221));
+  border-radius: 100px;
+  box-shadow:-2px -2px 0px rgb(3, 15, 155), 2px 1px 0px rgb(168, 160, 249);
+}
+
+.red {
+  height: 65px;
+  width: 65px;
+  background-image: radial-gradient(red, rgb(233, 0, 0),  rgba(0, 0, 0, 0.639));
+  border-radius: 100px;
+  transition: background-color 0.5s;
+  box-shadow:-2px -2px 0px rgb(3, 15, 155), 2px 1px 0px rgb(168, 160, 249);
+}
+
+.yellow {
+  height: 65px;
+  width: 65px;
+  background-image: radial-gradient(yellow, rgb(237, 237, 0),  rgba(169, 135, 0, 0.886));
+  border-radius: 100px;
+  transition: background-color 0.5s;
+  box-shadow:-2px -2px 0px rgb(3, 15, 155), 2px 1px 0px rgb(168, 160, 249);
 }

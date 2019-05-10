@@ -24,30 +24,33 @@ app.listen(port, () => {
 //   res.send(
 // });
 app.post('/billing', (req, res) => {
-  user.addBilling(req.body);
+  // user.addBilling(req.body);
   // res.sendStatus(201);
   // res.end();
+  req.on(data, chunk => {
+    console.log(chunk)
+  })
   req.on('end', () => {
     let response = 'hate this';
-    res.body = response;
-    res.send()
+    console.log(response)
+    res.send(response)
   })
   res.end()
-})
+});
   
   app.post('/shipping', (req, res)=> {
     console.log('post ship')
     user.addShipping(req.body);
     res.sendStatus(201)
     res.end()
-  })
+  });
   
   app.post('/user', (req, res) => {
     console.log('post use')
     user.create(req.body);
     res.sendStatus(201)
     res.end()
-  })
+  });
 
 
   module.exports = app;
